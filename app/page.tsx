@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Button from "./components/ui/Button";
 import { useState } from "react";
-import {Command, CircleAlert} from "lucide-react"
+import {Command, CircleAlert,Wifi, Database, Zap, ChartSpline} from "lucide-react"
 import { FaNodeJs, FaJava, FaPhp, FaPython, FaRust} from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import {TbBrandCSharp} from "react-icons/tb"
@@ -10,10 +10,32 @@ import Tag from "./components/ui/Tag";
 import Timeline from "./components/ui/Timeline";
 import Card from "./components/ui/Card"
 import TechStack from "./components/ui/TechStack";
+import FAQAccordion from "./components/ui/Accordion";
+import Link from "next/link"
 
 export default function Home() {
   const [email, setEmail] = useState<string>("");
-  const [flip, setFlip ] = useState<boolean>(false)
+  const [flip, setFlip ] = useState<boolean>(false);
+
+
+  const productFAQs = [
+    {
+      question: "What payment methods do you accept?",
+      answer: "We accept credit cards (Visa, MasterCard, American Express), PayPal, and Apple Pay."
+    },
+    {
+      question: "How long does shipping take?",
+      answer: "Standard shipping takes 3-5 business days. Express shipping is available for 1-2 day delivery."
+    },
+    {
+      question: "Do you offer returns?",
+      answer: "Yes, we offer a 30-day return policy for unused items in their original packaging."
+    },
+    {
+      question: "Is my data secure?",
+      answer: "We use industry-standard encryption and follow strict data protection guidelines to ensure your personal information remains confidential."
+    }
+  ];
 
   return (
     <main className="space-y-48">
@@ -104,7 +126,7 @@ export default function Home() {
              )}
               </section>
 
-              <section className="flex flex-col justify-center item-center p-10 gap-10">
+              <section className="flex flex-col justify-center item-center p-10 gap-10" id="features">
               <div className="text-center ">
                 <h2 className="text-5xl font-semibold text-center">
                   <span className="text-primary">Precision.</span>
@@ -115,11 +137,16 @@ export default function Home() {
               </div>
 
               <div className="grid grid-cols-2 place-items-center gap-5">
-
-  <Card 
+              <Card 
     featureName="AI-powered test case generation" 
     Icon={CircleAlert} 
     desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
+  />
+
+  <Card 
+    featureName="Instant test execution" 
+    Icon={Zap} 
+    desc="Run tests seamlessly with lightning speed , across multiple environments."
   />
   <Image 
     src="/img-1.png" 
@@ -130,16 +157,12 @@ export default function Home() {
 
  
   <Card 
-    featureName="AI-powered test case generation" 
-    Icon={CircleAlert} 
-    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
+    featureName="Detailed failure insights" 
+    Icon={ChartSpline} 
+    desc="Receive pinpointed logs and AI-driven solutions for every failed test"
   />
   
-  <Card 
-    featureName="AI-powered test case generation" 
-    Icon={CircleAlert} 
-    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
-  />
+ 
   <div className="row-span-2 flex justify-center">
     <Image 
       src="/img-2.png" 
@@ -150,24 +173,25 @@ export default function Home() {
     />
   </div>
   <Card 
-    featureName="AI-powered test case generation" 
-    Icon={CircleAlert} 
-    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
+    featureName="Comprehensive database testing" 
+    Icon={Database} 
+    desc="Ensure robust backend-database integration with your other backend services"
+  />
+  <Card 
+    featureName="Full QA coverage" 
+    Icon={Wifi} 
+    desc="From simple unit tests to complete system-level integrations, your entire QA process is fully covered"
   />
   
 
   
-  <Card 
-    featureName="AI-powered test case generation" 
-    Icon={CircleAlert} 
-    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
-  />
+
 </div>
 
                 </section>
 
 
-                <section className="bg-secondary h-auto p-10">
+                <section className="bg-secondary h-auto p-10" id="languages">
     <div className="p-10">
    
       {/* Header */}
@@ -190,8 +214,11 @@ export default function Home() {
         <TechStack Icon={FaPhp} language="PHP" />
     </div>
     <div className="flex flex-col justify-center items-center">
-    <button className="mt-4 bg-primary px-4 py-2 rounded-md text-sm text-black font-semibold">
-          Request a demo
+    <button className="mt-4 bg-primary px-4 py-3 rounded-md text-sm text-black font-semibold">
+      <Link href="mailto:integrionhq@gmail.com">
+      Request a demo
+      </Link>
+         
         </button>
       </div>
   
@@ -200,8 +227,11 @@ export default function Home() {
 
                 </section>
 
-                <section>
-                  
+                <section className="flex flex-col justify-center items-center  gap-10 p-10 ">
+                  <h2 className="text-5xl font-semibold text-center text-secondary">All the A's to your Q's</h2>
+                  <FAQAccordion faqs={productFAQs}/>
+
+                  <button className="font-semibold text-secondary hover:bg-lighterPrimary px-4 py-3 rounded-md underline">See All FAQs</button>
                   </section>
     </main>
   );

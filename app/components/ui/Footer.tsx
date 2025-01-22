@@ -1,0 +1,105 @@
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link"
+
+const Footer = () => {
+  const [email, setEmail] = useState<string>("");
+
+  return (
+    <footer className="bg-[#efefef] py-12 px-6 flex flex-col justify-center items-center gap-6 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-20 max-w-[1200px] w-full">
+        {/* Left Content */}
+        <div className="flex flex-col gap-6 w-full md:w-1/2">
+          <h3 className="text-3xl md:text-4xl font-semibold text-secondary leading-snug">
+            Don't test the old way - Join the revolution
+          </h3>
+          <p className="text-lg text-[#555]">
+            Be among the first to experience Integrion's groundbreaking capabilities.
+          </p>
+
+          {/* Input + Button */}
+          <div className="flex items-center gap-2 w-full">
+            <input
+              type="email"
+              placeholder="example@waitlist.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 bg-white/10  p-3 border border-gray text-black rounded-lg outline-none"
+            />
+            <button
+              className="bg-primary text-secondary hover:bg-lightPrimary py-3 px-5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-all"
+              onClick={() => console.log("Hello World")}
+            >
+              Sign up for early access
+            </button>
+          </div>
+        </div>
+
+        {/* Right Image */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          <Image src="/img-3.png" alt="Integrion Preview" width={350} height={250} className="rounded-lg" />
+        </div>
+      </div>
+    <hr className="text-[#333]/10 h-2 w-full"/>
+    <div className="flex flex-col md:flex-row justify-between items-center gap-6 max-w-[1200px] w-full">
+      <div className="w-1/2 flex flex-col md:flex-row justify-between items-center">
+      <div className="flex flex-col justify-between items-start gap-4">
+<span className="font-bold text-md text-[#636363]">
+          Product
+          </span>
+          <div className="flex flex-col justify-center items-start gap-3">
+      <Link href="" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <span>Features</span>
+      </Link>
+      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-secondary">
+     <span>
+     Pricing 
+      </span>
+      <span className="bg-primary text-secondary font-semibold text-xs rounded-md px-2 py-1"> Speak to sales </span>
+      </Link>
+      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <span>Speak to engineering</span>
+      </Link>
+          </div>
+      </div>
+      <div className="flex flex-col justify-between items-start gap-4">
+<span className="font-bold text-md text-[#636363]">
+          Company
+          </span>
+          <div className="flex flex-col justify-center items-start gap-3">
+      <Link href="" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <span>About Us</span>
+      </Link>
+      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-secondary">
+     <span>
+     Emerging Talents 
+      </span>
+      <span className="bg-primary text-secondary font-semibold text-xs rounded-md px-2 py-1"> Speak to sales </span>
+      </Link>
+      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <span>Careers</span>
+      </Link>
+          </div>
+      </div>
+        
+      </div>
+      <div className="flex flex-col justify-between items-start">
+        <Image src="/logo.svg" alt="" width={150} height={150}/>
+        <Link href="mailto:integrionhq@gmail.com">
+        <span className="text-sm text-[#636363] hover:font-bold hover:text-secondary">
+          integrionhq@gmail.com
+        </span>
+        </Link>
+        <span className="text-sm text-[#636363] hover:font-bold hover:text-secondary">
+          We are a full remote team, with team members across the globe .
+        </span>
+       
+      
+      </div>
+    </div>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -16,13 +16,13 @@ const Navbar = () => {
             subitems: [
                 { 
                     name: "Features", 
-                    url: "/features",
+                    url: "/#features",
                     icon: <Sparkles className="w-5 h-5 text-primary" />,
                     subtext: "Explore our powerful features and capabilities"
                 },
                 { 
                     name: "Language Support", 
-                    url: "/languages",
+                    url: "/#languages",
                     icon: <Globe className="w-5 h-5 text-primary" />,
                     subtext: "Available languages and translation options"
                 }
@@ -121,7 +121,7 @@ const Navbar = () => {
                             Sign in
                         </Link>
                         <Link
-                            href="/signup"
+                            href="mailto:integrionhq@gmail.com"
                             className="text-sm px-5 py-2 bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
                         >
                             Request a demo
