@@ -2,15 +2,24 @@
 import Image from "next/image";
 import Button from "./components/ui/Button";
 import { useState } from "react";
+import {Command, CircleAlert} from "lucide-react"
+import { FaNodeJs, FaJava, FaPhp, FaPython, FaRust} from "react-icons/fa";
+import { FaGolang } from "react-icons/fa6";
+import {TbBrandCSharp} from "react-icons/tb"
+import Tag from "./components/ui/Tag";
+import Timeline from "./components/ui/Timeline";
+import Card from "./components/ui/Card"
+import TechStack from "./components/ui/TechStack";
 
 export default function Home() {
   const [email, setEmail] = useState<string>("");
+  const [flip, setFlip ] = useState<boolean>(false)
 
   return (
-    <main className="">
-      <div className="flex flex-col jusitfy-center items-center gap-10   bg-secondary text-white h-screen py-10 px-10">
+    <main className="space-y-48">
+      <section className="flex flex-col jusitfy-center items-center gap-20  bg-secondary text-white h-auto p-10">
 
-      <section className="flex justify-center items-center  gap-10 ">
+      <div className="flex justify-center items-center  gap-10 ">
        
         <div className="w-1/2 flex flex-col gap-6 ">
           <div className="flex flex-col gap-4">
@@ -24,6 +33,7 @@ export default function Home() {
           
           <div className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between items-center w-3/4">
             <input
+            value={email}
                     placeholder="What's your email?"
               className="bg-transparent text-white font-medium outline-none border-none text-md px-3"
               onChange={(e) => setEmail(e.target.value)}
@@ -39,12 +49,12 @@ export default function Home() {
           <Image src="/ui.png" alt="" width={500} height={500} />
         </div>
         
-             </section>
+             </div>
 
-             <section className="flex flex-col justify-center items-center gap-4">
+             <div className="flex flex-col justify-center items-center gap-4">
               <div>
                 <span className="text-gray">
-                  Integrate with youtr favourite code repository tools
+                  Integrate with your favorite code repository tools
                   </span>
                 </div>
                 <div className="flex justify-between items-center gap-10">
@@ -52,8 +62,147 @@ export default function Home() {
                   <Image src="/bitbucket.png" alt="Github" width={50}    height={150} />    
                   <Image src="/Gitlab.png" alt="Github" width={100}    height={150} />    
                    </div>
+              </div>
+             </section>
+
+             <section className="flex flex-col justify-center items-center gap-10 p-10">
+              <h2 className="text-5xl font-semibold w-1/2 text-center">
+              Get past the backend and QA testing bottleneck really fast
+                </h2>
+             {!flip ? (
+              <div className="flex flex-col justify-center items-start gap-5 bg-[#e8eef7] p-5 w-3/4 rounded-lg">
+                  <div className="flex justify-between items-center w-full">
+                    <span className="text-[#636363] text-3xl font-medium">Backend testing is broken</span>
+                    <button className="bg-lighterPrimary py-2 px-4 rounded-lg group  transition-all hover:cursor-pointer  hover:bg-secondary hover:text-white flex justify-center items-center gap-3" onClick={()=> setFlip(!flip)}>
+                    <Command/>
+                    <span className="text-secondary text-sm font-medium group-hover:text-white">Resolve the issue</span>
+                    </button>
+</div>
+<p className="text-lg font-medium">Engineers spend countless hours crafting test cases, running tests, troubleshooting failures and piecing together resolutions</p>
+
+                    <div className="flex justify-between items-start gap-10">
+                   
+                      <Tag bgColor="secondary" color="white" tagName="Delayed releases" Icon={CircleAlert}/>
+                      <Tag bgColor="secondary" color="white" tagName="Increased costs" Icon={CircleAlert}/>
+                      <Tag bgColor="secondary" color="white" tagName="Stifled innovation" Icon={CircleAlert}/>
+                      </div>
+                  </div>
+            
+             ) : (
+              <div className="flex flex-col justify-center items-start gap-7  bg-[#e8eef7] p-5  lg:w-3/4 rounded-lg">
+              <div className="flex justify-between items-center w-full">
+                <span className="text-[#636363] text-3xl font-medium">Integrion fixes it</span>
+                <button className="bg-lighterPrimary py-2 px-4 rounded-lg group  transition-all hover:cursor-pointer  hover:bg-secondary hover:text-white flex justify-center items-center gap-3" onClick={()=> setFlip(!flip)}>
+                <Command/>
+                <span className="text-secondary text-sm font-medium group-hover:text-white">What's the problem ?</span>
+                </button>
+</div>
+<p className="text-lg font-medium">With Integrion, you can <span className="text-secondary font-bold">slash QA times</span>, <span className="text-secondary font-bold">ship faster</span> and ensure <span className="text-secondary font-bold">rock solid backend performance</span>  - no more bottlenkecks just progress</p>
+
+               <Timeline/>
+              </div>
+             )}
               </section>
-             </div>
+
+              <section className="flex flex-col justify-center item-center p-10 gap-10">
+              <div className="text-center ">
+                <h2 className="text-5xl font-semibold text-center">
+                  <span className="text-primary">Precision.</span>
+                  <span className="text-primary">Speed.</span>
+                  <span className="text-primary">Scalability. </span>
+             All in One Platform
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-2 place-items-center gap-5">
+
+  <Card 
+    featureName="AI-powered test case generation" 
+    Icon={CircleAlert} 
+    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
+  />
+  <Image 
+    src="/img-1.png" 
+    alt="team-integration" 
+    width={600} 
+    height={200} 
+  />
+
+ 
+  <Card 
+    featureName="AI-powered test case generation" 
+    Icon={CircleAlert} 
+    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
+  />
+  
+  <Card 
+    featureName="AI-powered test case generation" 
+    Icon={CircleAlert} 
+    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
+  />
+  <div className="row-span-2 flex justify-center">
+    <Image 
+      src="/img-2.png" 
+      alt="team-integration" 
+      width={600} 
+      height={400} 
+      className="object-cover"
+    />
+  </div>
+  <Card 
+    featureName="AI-powered test case generation" 
+    Icon={CircleAlert} 
+    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
+  />
+  
+
+  
+  <Card 
+    featureName="AI-powered test case generation" 
+    Icon={CircleAlert} 
+    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
+  />
+</div>
+
+                </section>
+
+
+                <section className="bg-secondary h-auto p-10">
+    <div className="p-10">
+   
+      {/* Header */}
+      <div className="text-white text-center mb-10">
+        <h2 className="text-5xl font-bold text-white">Built for every tech stack</h2>
+        <p className="text-gray mt-2 subtext">
+          Seamlessly integrate Integrion into your workflow no matter what technologies you use
+        </p>
+       
+      </div>
+
+      {/* Grid Layout */}
+      <div className="grid grid-cols-4 gap-4">
+        <TechStack Icon={FaNodeJs} language="NodeJS" />
+        <TechStack Icon={FaPython} language="Python" />
+        <TechStack Icon={FaJava} language="Java" />
+        <TechStack Icon={FaRust} language="Ruby" />
+        <TechStack Icon={FaGolang} language="Go" />
+        <TechStack Icon={TbBrandCSharp} language="C#" />
+        <TechStack Icon={FaPhp} language="PHP" />
+    </div>
+    <div className="flex flex-col justify-center items-center">
+    <button className="mt-4 bg-primary px-4 py-2 rounded-md text-sm text-black font-semibold">
+          Request a demo
+        </button>
+      </div>
+  
+    </div>
+ 
+
+                </section>
+
+                <section>
+                  
+                  </section>
     </main>
   );
 }

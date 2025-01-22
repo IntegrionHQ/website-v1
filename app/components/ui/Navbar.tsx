@@ -42,7 +42,7 @@ const Navbar = () => {
 
     return (
         <section className="bg-secondary text-white relative">
-            <nav className="max-w-[100rem] mx-auto">
+            <nav className="mx-auto">
                 <div className="flex justify-between items-center py-5 px-6 lg:px-8">
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0">
@@ -116,13 +116,13 @@ const Navbar = () => {
                         {/* CTA Buttons */}
                         <Link
                             href="/login"
-                            className="font-medium bg-white/30 border border-gray/45 text-white text-sm px-5 py-3 rounded-md hover:bg-primary hover:text-secondary hover:border-none transition-all duration-200"
+                            className="font-medium bg-white/30 border border-gray/45 text-white text-sm px-5 py-2 rounded-md hover:bg-primary hover:text-secondary hover:border-none transition-all duration-200"
                         >
                             Sign in
                         </Link>
                         <Link
                             href="/signup"
-                            className="text-sm px-5 py-3 bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
+                            className="text-sm px-5 py-2 bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
                         >
                             Request a demo
                         </Link>
