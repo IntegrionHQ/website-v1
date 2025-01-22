@@ -1,0 +1,204 @@
+"use client"
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Menu, X, ChevronDown, Sparkles, Globe, Settings, MessageSquare } from 'lucide-react';
+
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState(null);
+    const [hoveredItem, setHoveredItem] = useState(null);
+
+    const navItems = [
+        {
+            name: "Product",
+            url: "/",
+            subitems: [
+                { 
+                    name: "Features", 
+                    url: "/features",
+                    icon: <Sparkles className="w-5 h-5 text-primary" />,
+                    subtext: "Explore our powerful features and capabilities"
+                },
+                { 
+                    name: "Language Support", 
+                    url: "/languages",
+                    icon: <Globe className="w-5 h-5 text-primary" />,
+                    subtext: "Available languages and translation options"
+                }
+            ]
+        },
+        { name: "About", url: "/about" },
+        { name: "FAQ", url: "/faq" },
+    ];
+
+    const toggleDropdown = (index: any) => {
+        if (activeDropdown === index) {
+            setActiveDropdown(null);
+        } else {
+            setActiveDropdown(index);
+        }
+    };
+
+    return (
+        <section className="bg-secondary text-white relative">
+            <nav className="max-w-[100rem] mx-auto">
+                <div className="flex justify-between items-center py-5 px-6 lg:px-8">
+                    {/* Logo */}
+                    <Link href="/" className="flex-shrink-0">
+                        <Image src="/logo.png" alt="logo" width={150} height={150} priority />
+                    </Link>
+
+                    {/* Mobile menu button */}
+                    <div className="lg:hidden">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="p-2 rounded-md hover:bg-secondary-dark focus:outline-none"
+                        >
+                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden lg:flex lg:items-center lg:gap-x-8">
+                        {navItems.map((item, index) => (
+                            <div 
+                                key={index} 
+                                className="relative"
+                                onMouseEnter={() => setHoveredItem(index)}
+                                onMouseLeave={() => setHoveredItem(null)}
+                            >
+                                <button
+                                    className={`flex items-center gap-1 px-3 py-2 rounded-md hover:bg-lighterPrimary hover:text-black hover:font-medium transition-all duration-200 text-sm relative group
+                                        ${hoveredItem === index ? 'bg-white/10' : ''}`}
+                                    onClick={() => item.subitems && toggleDropdown(index)}
+                                >
+                                    {item.name}
+                                    {item.subitems && (
+                                        <ChevronDown 
+                                            size={16} 
+                                            className={`transform transition-transform duration-200
+                                                ${hoveredItem === index ? 'rotate-180' : ''}`}
+                                        />
+                                    )}
+                                </button>
+                                
+                                {/* Desktop Dropdown */}
+                                {item.subitems && hoveredItem === index && (
+                                    <div className="absolute left-0 mt-2 w-64 rounded-md shadow-lg bg-white text-gray-800 overflow-hidden">
+                                        {item.subitems.map((subitem, subIndex) => (
+                                            <Link
+                                                key={subIndex}
+                                                href={subitem.url}
+                                                className="block p-4 hover:bg-gray-50 transition-colors duration-200 text-black relative group"
+                                            >
+                                                <div className="flex items-start gap-3">
+                                                    <div className="flex-shrink-0 mt-1 transition-transform duration-200 group-hover:scale-110">
+                                                        {subitem.icon}
+                                                    </div>
+                                                    <div>
+                                                        <div className="text-sm font-medium text-gray-900">
+                                                            {subitem.name}
+                                                        </div>
+                                                        <div className="text-xs font-medium text-gray-500 mt-1">
+                                                            {subitem.subtext}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="space-x-5">
+                        {/* CTA Buttons */}
+                        <Link
+                            href="/login"
+                            className="font-medium bg-white/30 border border-gray/45 text-white text-sm px-5 py-3 rounded-md hover:bg-primary hover:text-secondary hover:border-none transition-all duration-200"
+                        >
+                            Sign in
+                        </Link>
+                        <Link
+                            href="/signup"
+                            className="text-sm px-5 py-3 bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
+                        >
+                            Request a demo
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Mobile Navigation */}
+                {isOpen && (
+                    <div className="lg:hidden">
+                        <div className="px-4 pt-2 pb-3 space-y-1">
+                            {navItems.map((item, index) => (
+                                <div key={index} className="w-full">
+                                    <button
+                                        className="w-full flex items-center justify-between px-3 py-2 rounded-md hover:bg-white/10 transition-colors duration-200"
+                                        onClick={() => item.subitems && toggleDropdown(index)}
+                                    >
+                                        {item.name}
+                                        {item.subitems && (
+                                            <ChevronDown 
+                                                size={16} 
+                                                className={`transform transition-transform duration-200
+                                                    ${activeDropdown === index ? 'rotate-180' : ''}`}
+                                            />
+                                        )}
+                                    </button>
+                                    
+                                    {/* Mobile Dropdown */}
+                                    {item.subitems && activeDropdown === index && (
+                                        <div className="ml-4 space-y-1">
+                                            {item.subitems.map((subitem, subIndex) => (
+                                                <Link
+                                                    key={subIndex}
+                                                    href={subitem.url}
+                                                    className="block p-3 rounded-md hover:bg-white/10 transition-colors duration-200"
+                                                >
+                                                    <div className="flex items-start gap-3">
+                                                        <div className="flex-shrink-0 mt-1">
+                                                            {subitem.icon}
+                                                        </div>
+                                                        <div>
+                                                            <div className="text-sm font-medium">
+                                                                {subitem.name}
+                                                            </div>
+                                                            <div className="text-xs text-gray-300 mt-1">
+                                                                {subitem.subtext}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                            
+                            {/* Mobile CTA Buttons */}
+                            <div className="space-y-2 pt-4">
+                                <Link
+                                    href="/login"
+                                    className="block w-full px-4 py-2 text-center font-medium bg-white/30 border border-gray/45 text-white rounded-md hover:bg-primary hover:text-secondary hover:border-none transition-all duration-200"
+                                >
+                                    Sign in
+                                </Link>
+                                <Link
+                                    href="/signup"
+                                    className="block w-full px-4 py-2 text-center text-sm bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
+                                >
+                                    Request a demo
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </nav>
+        </section>
+    );
+};
+
+export default Navbar;

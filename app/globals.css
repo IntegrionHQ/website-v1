@@ -3,3 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+font-family: "Manrope", sans-serif;
+}
+
+.subtext{
+  font-family: "Poppins", sans-serif;
+}
