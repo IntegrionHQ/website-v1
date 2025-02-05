@@ -13,11 +13,11 @@ import TechStack from "./components/ui/TechStack";
 import FAQAccordion from "./components/ui/Accordion";
 import Link from "next/link"
 
+
 export default function Home() {
-  const [email, setEmail] = useState<string>("");
+  // const [email, setEmail] = useState<string>("");
   const [flip, setFlip ] = useState<boolean>(false);
-
-
+  // const [isLoading, setIsLoading] = useState<boolean>(false)
   const productFAQs = [
     {
       question: "What payment methods do you accept?",
@@ -37,6 +37,53 @@ export default function Home() {
     }
   ];
 
+ 
+  // Resend wailtist subscription API
+  const [email, setEmail] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<boolean>(false);
+
+  const joinWaitlist = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+    
+    try {
+      const response = await fetch("/api/resend", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email:email,
+          audienceId: "3608ecd8-d5ae-4102-8ffb-85bd9af1f8e8"
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to join waitlist');
+      }
+
+      const data = await response.json();
+      console.log(data)
+      setSuccess(true);
+      setEmail("");
+    } catch (err) {
+      setError("Failed to join waitlist. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };// const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY)
+     
+    // resend.contacts.create({
+    //   email:email,
+    //   audienceId: "3608ecd8-d5ae-4102-8ffb-85bd9af1f8e8",
+    //   unsubscribed: false,
+    // })
+
+  
+
   return (
     <main className="space-y-48">
       <section className="flex flex-col jusitfy-center items-center gap-20  bg-secondary text-white h-auto p-10">
@@ -53,7 +100,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between items-center w-3/4">
+          {/* <div className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between items-center w-3/4">
             <input
             value={email}
                     placeholder="What's your email?"
@@ -62,9 +109,23 @@ export default function Home() {
             />
             <Button
               linkTag="Join the waitlist"
-              callback={() => console.log("Hello World")}
+              callback={() => joinWaitlist()}
             />
-          </div>
+          </div> */}
+
+<form onSubmit={joinWaitlist} className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between items-center w-3/4">
+      <input
+        value={email}
+        placeholder="What's your email?"
+        className="bg-transparent text-white font-medium outline-none border-none text-md px-3"
+        onChange={(e) => setEmail(e.target.value)}
+        type="email"
+        required
+      />
+<button  className='bg-primary px-5 py-3 font-medium text-secondary rounded-md text-sm hover:bg-lightPrimary transition-colors' disabled={isLoading} type="submit">
+{isLoading ? "Joining..." : "Join the waitlist"}
+    </button>
+    </form>
         </div>
 
         <div className="w-1/2">
