@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
-import Button from "./components/ui/Button";
-import { useState } from "react";
+// import Button from "./components/ui/Button";
+import { useState , useEffect} from "react";
 import {Command, CircleAlert,Wifi, Database, Zap, ChartSpline} from "lucide-react"
 import { FaNodeJs, FaJava, FaPhp, FaPython, FaRust} from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
@@ -12,28 +12,45 @@ import Card from "./components/ui/Card"
 import TechStack from "./components/ui/TechStack";
 import FAQAccordion from "./components/ui/Accordion";
 import Link from "next/link"
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 
 export default function Home() {
+
+
+  //Initialize AOS
+ useEffect(()=>
+{
+  AOS.init(
+    {
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+    }
+  );
+  AOS.refresh();
+},[])
   // const [email, setEmail] = useState<string>("");
   const [flip, setFlip ] = useState<boolean>(false);
   // const [isLoading, setIsLoading] = useState<boolean>(false)
   const productFAQs = [
     {
-      question: "What payment methods do you accept?",
-      answer: "We accept credit cards (Visa, MasterCard, American Express), PayPal, and Apple Pay."
+      question: "How does Integrion reduce QA and backend testing times?",
+      answer: "Integrion leverages AI to generate, execute, and analyze test cases in real time, cutting down testing cycles from hours to minutes while maintaining accuracy and efficiency."
     },
     {
-      question: "How long does shipping take?",
-      answer: "Standard shipping takes 3-5 business days. Express shipping is available for 1-2 day delivery."
+      question: "What types of tests does Integrion support ?",
+      answer: "Our platform automates unit tests, integration tests, end-to-end (E2E) tests, and database testing, ensuring comprehensive coverage for backend systems."
     },
     {
-      question: "Do you offer returns?",
-      answer: "Yes, we offer a 30-day return policy for unused items in their original packaging."
+      question: "Can Integrion integrate with my existing CI/CD pipeline?",
+      answer: "Yes! Integrion seamlessly integrates with CI/CD pipelines, GitHub repositories, and various DBMS platforms to streamline automated testing and deployment."
     },
     {
-      question: "Is my data secure?",
-      answer: "We use industry-standard encryption and follow strict data protection guidelines to ensure your personal information remains confidential."
+      question: "How accurate are the AI-generated test cases ?",
+      answer: "Our AI models are trained to optimize test accuracy, ensuring 99.9% precision in detecting issues while reducing false positives."
     }
   ];
 
@@ -85,35 +102,27 @@ export default function Home() {
   
 
   return (
-    <main className="space-y-48">
-      <section className="flex flex-col jusitfy-center items-center gap-20  bg-secondary text-white h-auto p-10">
+    <main className="space-y-48 w-full">
+      <section className="flex flex-col jusitfy-center items-center gap-20  bg-secondary text-white h-[90vh]  md:p-10 py-10 px-5">
 
-      <div className="flex justify-center items-center  gap-10 ">
+      <div className="flex  flex-col justify-center items-center  gap-10 ">
        
-        <div className="w-1/2 flex flex-col gap-6 ">
-          <div className="flex flex-col gap-4">
-            <h1 className="text-[3.25rem] leading-[1.2]">
-              Re-imagining <span className="text-primary">backend & QA engineering</span> from  hours to minutes
+        <div className="w-full  flex flex-col justify-center items-center gap-6 text-center ">
+          <div className="flex flex-col justify-center items-center gap-4" data-aos="fade-up">
+            <h1 className="text-4xl md:text-[3.5rem] leading-[1.2] font-bold md:w-3/4 text-center" data-aos="fade-up">
+             Supercharge QA engineering with AI <span className="text-primary"> {
+              "{seconds > hours}"
+             }
+             </span>
             </h1>
-            <p className="text-md subtext font-normal">
+            <p className="text-md subtext font-normal" data-aos="fade-up">
               Faster tests, precise results, unparalleled efficiency and much more
             </p>
           </div>
           
-          {/* <div className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between items-center w-3/4">
-            <input
-            value={email}
-                    placeholder="What's your email?"
-              className="bg-transparent text-white font-medium outline-none border-none text-md px-3"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Button
-              linkTag="Join the waitlist"
-              callback={() => joinWaitlist()}
-            />
-          </div> */}
+        
 
-<form onSubmit={joinWaitlist} className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between items-center w-3/4">
+<form onSubmit={joinWaitlist} className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between md:items-center w-full md:w-1/2" >
       <input
         value={email}
         placeholder="What's your email?"
@@ -122,20 +131,20 @@ export default function Home() {
         type="email"
         required
       />
-<button  className='bg-primary px-5 py-3 font-medium text-secondary rounded-md text-sm hover:bg-lightPrimary transition-colors' disabled={isLoading} type="submit">
-{isLoading ? "Joining..." : "Join the waitlist"}
+<button  className='bg-primary md:px-5 px-2 py-3 font-medium text-secondary rounded-md text-sm hover:bg-lightPrimary transition-colors' disabled={isLoading} type="submit">
+{isLoading ? (
+  <span className="loader"></span>
+)
+ : "Join the waitlist"}
     </button>
     </form>
         </div>
 
-        <div className="w-1/2">
-          <Image src="/ui.png" alt="" width={500} height={500} />
-        </div>
         
              </div>
 
              <div className="flex flex-col justify-center items-center gap-4">
-              <div>
+              <div data-aos="fade-up ">
                 <span className="text-gray">
                   Integrate with your favorite code repository tools
                   </span>
@@ -148,13 +157,13 @@ export default function Home() {
               </div>
              </section>
 
-             <section className="flex flex-col justify-center items-center gap-10 p-10">
-              <h2 className="text-5xl font-semibold w-1/2 text-center">
+             <section className="flex flex-col justify-center items-center gap-10 md:p-10 py-10 px-5" id ="about">
+              <h2 className=" text-4xl md:text-5xl font-semibold w-full md:w-1/2 text-center" data-aos="fade-up ">
               Get past the backend and QA testing bottleneck really fast
                 </h2>
              {!flip ? (
-              <div className="flex flex-col justify-center items-start gap-5 bg-[#e8eef7] p-5 w-3/4 rounded-lg">
-                  <div className="flex justify-between items-center w-full">
+              <div className="flex flex-col justify-center items-start gap-5 bg-[#e8eef7] p-5 w-full md:w-3/4 rounded-lg" data-aos="fade-up ">
+                  <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 md:items-center w-full">
                     <span className="text-[#636363] text-3xl font-medium">Backend testing is broken</span>
                     <button className="bg-lighterPrimary py-2 px-4 rounded-lg group  transition-all hover:cursor-pointer  hover:bg-secondary hover:text-white flex justify-center items-center gap-3" onClick={()=> setFlip(!flip)}>
                     <Command/>
@@ -163,7 +172,7 @@ export default function Home() {
 </div>
 <p className="text-lg font-medium">Engineers spend countless hours crafting test cases, running tests, troubleshooting failures and piecing together resolutions</p>
 
-                    <div className="flex justify-between items-start gap-10">
+                    <div className="flex flex-wrap justify-between items-start gap-10">
                    
                       <Tag bgColor="secondary" color="white" tagName="Delayed releases" Icon={CircleAlert}/>
                       <Tag bgColor="secondary" color="white" tagName="Increased costs" Icon={CircleAlert}/>
@@ -172,8 +181,8 @@ export default function Home() {
                   </div>
             
              ) : (
-              <div className="flex flex-col justify-center items-start gap-7  bg-[#e8eef7] p-5  lg:w-3/4 rounded-lg">
-              <div className="flex justify-between items-center w-full">
+              <div className="flex flex-col justify-center items-start gap-7  bg-[#e8eef7] p-5  lg:w-3/4 rounded-lg" data-aos="fade-up ">
+              <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 md:items-center w-full">
                 <span className="text-[#636363] text-3xl font-medium">Integrion fixes it</span>
                 <button className="bg-lighterPrimary py-2 px-4 rounded-lg group  transition-all hover:cursor-pointer  hover:bg-secondary hover:text-white flex justify-center items-center gap-3" onClick={()=> setFlip(!flip)}>
                 <Command/>
@@ -187,17 +196,15 @@ export default function Home() {
              )}
               </section>
 
-              <section className="flex flex-col justify-center item-center p-10 gap-10" id="features">
-              <div className="text-center ">
-                <h2 className="text-5xl font-semibold text-center">
-                  <span className="text-primary">Precision.</span>
-                  <span className="text-primary">Speed.</span>
-                  <span className="text-primary">Scalability. </span>
+              <section className="flex flex-col justify-center item-center md:p-10 py-10 px-5 gap-10" id="features">
+              <div className="">
+                <h2 className="text-4xl md:text-5xl font-semibold text-center" data-aos="fade-up ">
+                  <span className="text-primary">Precision.Speed.Scalability.</span>
              All in One Platform
                 </h2>
               </div>
 
-              <div className="grid grid-cols-2 place-items-center gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-5" data-aos="fade-up ">
               <Card 
     featureName="AI-powered test case generation" 
     Icon={CircleAlert} 
@@ -252,20 +259,20 @@ export default function Home() {
                 </section>
 
 
-                <section className="bg-secondary h-auto p-10" id="languages">
+                <section className="bg-secondary h-auto md:p-10 px-5 py-10" id="languages">
     <div className="p-10">
    
       {/* Header */}
       <div className="text-white text-center mb-10">
-        <h2 className="text-5xl font-bold text-white">Built for every tech stack</h2>
-        <p className="text-gray mt-2 subtext">
+        <h2 className="text-4xl md:text-5xl font-bold text-white" data-aos="fade-up ">Built for every tech stack</h2>
+        <p className="text-gray mt-2 subtext" data-aos="fade-up ">
           Seamlessly integrate Integrion into your workflow no matter what technologies you use
         </p>
        
       </div>
 
       {/* Grid Layout */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up ">
         <TechStack Icon={FaNodeJs} language="NodeJS" />
         <TechStack Icon={FaPython} language="Python" />
         <TechStack Icon={FaJava} language="Java" />
@@ -276,7 +283,7 @@ export default function Home() {
     </div>
     <div className="flex flex-col justify-center items-center">
     <button className="mt-4 bg-primary px-4 py-3 rounded-md text-sm text-black font-semibold">
-      <Link href="mailto:integrionhq@gmail.com">
+      <Link href="https://calendly.com/integrionhq/demo-request">
       Request a demo
       </Link>
          
@@ -288,11 +295,11 @@ export default function Home() {
 
                 </section>
 
-                <section className="flex flex-col justify-center items-center  gap-10 p-10 ">
-                  <h2 className="text-5xl font-semibold text-center text-secondary">All the A's to your Q's</h2>
+                <section className="flex flex-col justify-center items-center  gap-10 md:p-10 py-10 px-5 " id="faq" data-aos="fade-up ">
+                  <h2 className=" text-4xl md:text-5xl font-semibold text-center text-secondary">All the A's to your Q's</h2>
                   <FAQAccordion faqs={productFAQs}/>
 
-                  <button className="font-semibold text-secondary hover:bg-lighterPrimary px-4 py-3 rounded-md underline">See All FAQs</button>
+                  {/* <button className="font-semibold text-secondary hover:bg-lighterPrimary px-4 py-3 rounded-md underline">See All FAQs</button> */}
                   </section>
     </main>
   );

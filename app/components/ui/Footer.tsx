@@ -5,6 +5,36 @@ import Link from "next/link"
 
 const Footer = () => {
   const [email, setEmail] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<boolean>(false);
+
+  const joinWaitlist = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+    
+    try {
+      const response = await fetch("/api/resend", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email:email,
+          audienceId: "3608ecd8-d5ae-4102-8ffb-85bd9af1f8e8"
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to join waitlist');
+        }
+        } catch (error) {
+          setError("Failed to join waitlist");
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
   return (
     <footer className="bg-[#efefef] py-12 px-6 flex flex-col justify-center items-center gap-6 w-full">
@@ -19,7 +49,7 @@ const Footer = () => {
           </p>
 
           {/* Input + Button */}
-          <div className="flex items-center gap-2 w-full">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 w-full">
             <input
               type="email"
               placeholder="example@waitlist.com"
@@ -31,7 +61,10 @@ const Footer = () => {
               className="bg-primary text-secondary hover:bg-lightPrimary py-3 px-5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-all"
               onClick={() => console.log("Hello World")}
             >
-              Sign up for early access
+             {isLoading ? (
+  <span className="loader"></span>
+)
+ : "Signup for early access"}
             </button>
           </div>
         </div>
@@ -42,23 +75,23 @@ const Footer = () => {
         </div>
       </div>
     <hr className="text-[#333]/10 h-2 w-full"/>
-    <div className="flex flex-col md:flex-row justify-between items-center gap-6 max-w-[1200px] w-full">
-      <div className="w-1/2 flex flex-col md:flex-row justify-between items-center">
+    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 max-w-[1200px] w-full">
+      <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-between md:items-center items-start gap-6 md:gap-0">
       <div className="flex flex-col justify-between items-start gap-4">
 <span className="font-bold text-md text-[#636363]">
           Product
           </span>
           <div className="flex flex-col justify-center items-start gap-3">
-      <Link href="" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <Link href="/#features" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
       <span>Features</span>
       </Link>
-      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-secondary">
+      <Link href="https://calendly.com/integrionhq/demo-request" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-secondary">
      <span>
      Pricing 
       </span>
       <span className="bg-primary text-secondary font-semibold text-xs rounded-md px-2 py-1"> Speak to sales </span>
       </Link>
-      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <Link href="https://calendly.com/integrionhq/demo-request" target="_blank" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
       <span>Speak to engineering</span>
       </Link>
           </div>
@@ -68,7 +101,7 @@ const Footer = () => {
           Company
           </span>
           <div className="flex flex-col justify-center items-start gap-3">
-      <Link href="" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <Link href="/#about" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
       <span>About Us</span>
       </Link>
       <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-secondary">

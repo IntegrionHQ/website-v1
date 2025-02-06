@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/aos": "^3.0.7",
+    "aos": "^2.3.4",
     "feather-icons": "^4.29.2",
     "integrion-website-v1": "file:",
     "lucide-react": "^0.474.0",

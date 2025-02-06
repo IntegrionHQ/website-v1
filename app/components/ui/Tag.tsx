@@ -8,7 +8,7 @@ const Tag = ({bgColor,color, tagName, Icon}:{
     Icon: React.ComponentType<any>
 }) => {
   return (
-    <div className={`flex justify-between items-center gap-2 px-4 py-3 rounded-full shadow-lg text-sm font-bold bg-${bgColor} text-${color}` }>
+    <div className={`flex flex-col md:flex-row justify-between items-start md:items-center w-full md:w-auto gap-2 px-4 py-3 rounded-lg md:rounded-full shadow-lg text-sm font-bold bg-${bgColor} text-${color}` }>
         <Icon size={20}/>
       {tagName}
     </div>

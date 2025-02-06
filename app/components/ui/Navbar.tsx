@@ -7,7 +7,7 @@ import { Menu, X, ChevronDown, Sparkles, Globe, Settings, MessageSquare } from '
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
-    const [hoveredItem, setHoveredItem] = useState(null);
+    const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 
     const navItems = [
         {
@@ -28,8 +28,8 @@ const Navbar = () => {
                 }
             ]
         },
-        { name: "About", url: "/about" },
-        { name: "FAQ", url: "/faq" },
+        { name: "About", url: "/#about" },
+        { name: "FAQ", url: "/#faq" },
     ];
 
     const toggleDropdown = (index: any) => {
@@ -40,6 +40,17 @@ const Navbar = () => {
         }
     };
 
+    const handleItemClick = (item: any, index?: number) => {
+        // If the item has no subitems, close the mobile menu
+        if (!item.subitems) {
+            setIsOpen(false);
+        }
+        
+        // If the item has subitems, toggle the dropdown
+        if (item.subitems) {
+            toggleDropdown(index);
+        }
+    };
     return (
         <section className="bg-secondary text-white relative">
             <nav className="mx-auto">
@@ -111,7 +122,7 @@ const Navbar = () => {
                                 )}
                             </div>
                         ))}
-                    </div>
+                  
                     <div className="space-x-5">
                         {/* CTA Buttons */}
                         <Link
@@ -121,11 +132,12 @@ const Navbar = () => {
                             Sign in
                         </Link>
                         <Link
-                            href="mailto:integrionhq@gmail.com"
+                            href="https://calendly.com/integrionhq/demo-request"
                             className="text-sm px-5 py-2 bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
                         >
                             Request a demo
                         </Link>
+                    </div>
                     </div>
                 </div>
 
@@ -135,19 +147,29 @@ const Navbar = () => {
                         <div className="px-4 pt-2 pb-3 space-y-1">
                             {navItems.map((item, index) => (
                                 <div key={index} className="w-full">
-                                    <button
-                                        className="w-full flex items-center justify-between px-3 py-2 rounded-md hover:bg-white/10 transition-colors duration-200"
-                                        onClick={() => item.subitems && toggleDropdown(index)}
-                                    >
-                                        {item.name}
-                                        {item.subitems && (
+                                    {item.subitems ? (
+                                        // Item with subitems
+                                        <button
+                                            className="w-full flex items-center justify-between px-3 py-2 rounded-md hover:bg-white/10 transition-colors duration-200"
+                                            onClick={() => handleItemClick(item, index)}
+                                        >
+                                            {item.name}
                                             <ChevronDown 
                                                 size={16} 
                                                 className={`transform transition-transform duration-200
                                                     ${activeDropdown === index ? 'rotate-180' : ''}`}
                                             />
-                                        )}
-                                    </button>
+                                        </button>
+                                    ) : (
+                                        // Item without subitems
+                                        <Link
+                                            href={item.url}
+                                            className="block w-full px-3 py-2 rounded-md hover:bg-white/10 transition-colors duration-200"
+                                            onClick={() => handleItemClick(item)}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    )}
                                     
                                     {/* Mobile Dropdown */}
                                     {item.subitems && activeDropdown === index && (
@@ -157,6 +179,7 @@ const Navbar = () => {
                                                     key={subIndex}
                                                     href={subitem.url}
                                                     className="block p-3 rounded-md hover:bg-white/10 transition-colors duration-200"
+                                                    onClick={() => setIsOpen(false)}
                                                 >
                                                     <div className="flex items-start gap-3">
                                                         <div className="flex-shrink-0 mt-1">
@@ -183,12 +206,14 @@ const Navbar = () => {
                                 <Link
                                     href="/login"
                                     className="block w-full px-4 py-2 text-center font-medium bg-white/30 border border-gray/45 text-white rounded-md hover:bg-primary hover:text-secondary hover:border-none transition-all duration-200"
+                                    onClick={() => setIsOpen(false)}
                                 >
                                     Sign in
                                 </Link>
                                 <Link
-                                    href="/signup"
+                                    href="https://calendly.com/integrionhq/demo-request"
                                     className="block w-full px-4 py-2 text-center text-sm bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
+                                    onClick={() => setIsOpen(false)}
                                 >
                                     Request a demo
                                 </Link>
