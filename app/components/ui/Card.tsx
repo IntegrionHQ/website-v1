@@ -1,6 +1,9 @@
 import React from 'react'
+import { IconBaseProps } from 'react-icons';
 
-const Card = ({featureName, Icon, desc}:{featureName:string, Icon:React.ComponentType<any>, desc:string}) => {
+
+
+const Card = ({featureName, Icon, desc}:{featureName:string, Icon:React.ComponentType<IconBaseProps>, desc:string}) => {
   return (
     <div className='bg-[#efefef] p-5  rounded-lg  gap-36 flex flex-col justify-between items-center hover:bg-white hover:drop-shadow-xl'>
       <div className='flex justify-between items-center w-full'>

@@ -2,11 +2,23 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Sparkles, Globe, Settings, MessageSquare } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles, Globe} from 'lucide-react';
 
+interface SubItemType {
+    name: string;
+    url: string;
+    icon: React.JSX.Element;
+    subtext: string;
+}
+
+interface ItemType {
+    name: string;
+    url: string;
+    subitems?: SubItemType[];
+}
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [activeDropdown, setActiveDropdown] = useState(null);
+    const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
     const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 
     const navItems = [
@@ -32,7 +44,7 @@ const Navbar = () => {
         { name: "FAQ", url: "/#faq" },
     ];
 
-    const toggleDropdown = (index: any) => {
+    const toggleDropdown = (index:number) => {
         if (activeDropdown === index) {
             setActiveDropdown(null);
         } else {
@@ -40,7 +52,7 @@ const Navbar = () => {
         }
     };
 
-    const handleItemClick = (item: any, index?: number) => {
+    const handleItemClick = (item:ItemType, index: number = -1) => {
         // If the item has no subitems, close the mobile menu
         if (!item.subitems) {
             setIsOpen(false);

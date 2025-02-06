@@ -58,13 +58,12 @@ export default function Home() {
   // Resend wailtist subscription API
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
-  const [success, setSuccess] = useState<boolean>(false);
+  
 
   const joinWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError("");
+    // setError("");
     
     try {
       const response = await fetch("/api/resend", {
@@ -84,10 +83,11 @@ export default function Home() {
 
       const data = await response.json();
       console.log(data)
-      setSuccess(true);
+      // setSuccess(true);
       setEmail("");
     } catch (err) {
-      setError("Failed to join waitlist. Please try again.");
+      console.log(err)
+      // setError("Failed to join waitlist. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -125,7 +125,7 @@ export default function Home() {
 <form onSubmit={joinWaitlist} className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between md:items-center w-full md:w-1/2" >
       <input
         value={email}
-        placeholder="What's your email?"
+        placeholder="What&apos;s your email?"
         className="bg-transparent text-white font-medium outline-none border-none text-md px-3"
         onChange={(e) => setEmail(e.target.value)}
         type="email"
@@ -186,7 +186,7 @@ export default function Home() {
                 <span className="text-[#636363] text-3xl font-medium">Integrion fixes it</span>
                 <button className="bg-lighterPrimary py-2 px-4 rounded-lg group  transition-all hover:cursor-pointer  hover:bg-secondary hover:text-white flex justify-center items-center gap-3" onClick={()=> setFlip(!flip)}>
                 <Command/>
-                <span className="text-secondary text-sm font-medium group-hover:text-white">What's the problem ?</span>
+                <span className="text-secondary text-sm font-medium group-hover:text-white">What&apos;s the problem ?</span>
                 </button>
 </div>
 <p className="text-lg font-medium">With Integrion, you can <span className="text-secondary font-bold">slash QA times</span>, <span className="text-secondary font-bold">ship faster</span> and ensure <span className="text-secondary font-bold">rock solid backend performance</span>  - no more bottlenkecks just progress</p>
@@ -296,7 +296,7 @@ export default function Home() {
                 </section>
 
                 <section className="flex flex-col justify-center items-center  gap-10 md:p-10 py-10 px-5 " id="faq" data-aos="fade-up ">
-                  <h2 className=" text-4xl md:text-5xl font-semibold text-center text-secondary">All the A's to your Q's</h2>
+                  <h2 className=" text-4xl md:text-5xl font-semibold text-center text-secondary">All the A&apos;s to your QA&apos;s</h2>
                   <FAQAccordion faqs={productFAQs}/>
 
                   {/* <button className="font-semibold text-secondary hover:bg-lighterPrimary px-4 py-3 rounded-md underline">See All FAQs</button> */}

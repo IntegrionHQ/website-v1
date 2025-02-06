@@ -6,13 +6,13 @@ import Link from "next/link"
 const Footer = () => {
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
-  const [success, setSuccess] = useState<boolean>(false);
+  // const [error, setError] = useState<string>("");
+  // const [success, setSuccess] = useState<boolean>(false);
 
   const joinWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError("");
+    // setError("");
     
     try {
       const response = await fetch("/api/resend", {
@@ -27,10 +27,11 @@ const Footer = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to join waitlist');
+        throw new Error("Failed to join waitlist");
         }
         } catch (error) {
-          setError("Failed to join waitlist");
+          // setError("Failed to join waitlist");
+          console.log(error)
         } finally {
           setIsLoading(false);
         }
@@ -42,10 +43,10 @@ const Footer = () => {
         {/* Left Content */}
         <div className="flex flex-col gap-6 w-full md:w-1/2">
           <h3 className="text-3xl md:text-4xl font-semibold text-secondary leading-snug">
-            Don't test the old way - Join the revolution
+            Don&apos;t test the old way - Join the revolution
           </h3>
           <p className="text-lg text-[#555]">
-            Be among the first to experience Integrion's groundbreaking capabilities.
+            Be among the first to experience Integrion&apos;s groundbreaking capabilities.
           </p>
 
           {/* Input + Button */}
@@ -59,7 +60,7 @@ const Footer = () => {
             />
             <button
               className="bg-primary text-secondary hover:bg-lightPrimary py-3 px-5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-all"
-              onClick={() => console.log("Hello World")}
+              onClick={joinWaitlist}
             >
              {isLoading ? (
   <span className="loader"></span>

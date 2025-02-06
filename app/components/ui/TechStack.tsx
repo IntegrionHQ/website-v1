@@ -1,7 +1,8 @@
 import React from 'react'
+import { IconBaseProps } from 'react-icons'
 
 const TechStack = ({Icon, language}:{
-  Icon:React.ComponentType<any>,
+  Icon:React.ComponentType<IconBaseProps>,
   language:string
 }) => {
   return (
