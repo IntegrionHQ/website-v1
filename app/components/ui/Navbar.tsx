@@ -64,7 +64,7 @@ const Navbar = () => {
         }
     };
     return (
-        <section className="bg-secondary text-white relative">
+        <section className="bg-white text-black relative">
             <nav className="mx-auto">
                 <div className="flex justify-between items-center py-5 px-6 lg:px-8">
                     {/* Logo */}
@@ -135,21 +135,16 @@ const Navbar = () => {
                             </div>
                         ))}
                   
+                  
+                    </div>
                     <div className="space-x-5">
                         {/* CTA Buttons */}
                         <Link
-                            href="/login"
-                            className="font-medium bg-white/30 border border-gray/45 text-white text-sm px-5 py-2 rounded-md hover:bg-primary hover:text-secondary hover:border-none transition-all duration-200"
-                        >
-                            Sign in
-                        </Link>
-                        <Link
                             href="https://calendly.com/integrionhq/demo-request"
-                            className="text-sm px-5 py-2 bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
+                            className="text-sm px-5 py-3 bg-primary text-secondary rounded-full font-medium hover:bg-lightPrimary transition-all duration-200"
                         >
-                            Request a demo
+                            See a demo
                         </Link>
-                    </div>
                     </div>
                 </div>
 

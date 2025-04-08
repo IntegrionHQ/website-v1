@@ -2,7 +2,7 @@
 import Image from "next/image";
 // import Button from "./components/ui/Button";
 import { useState , useEffect} from "react";
-import {Command, CircleAlert,Wifi, Database, Zap, ChartSpline} from "lucide-react"
+import {MoveUpRight, Command } from "lucide-react"
 import { FaNodeJs, FaJava, FaPhp, FaPython, FaRust} from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import {TbBrandCSharp} from "react-icons/tb"
@@ -102,36 +102,33 @@ export default function Home() {
   
 
   return (
-    <main className="space-y-48 w-full">
-      <section className="flex flex-col jusitfy-center items-center gap-20  bg-secondary text-white h-[90vh]  md:p-10 py-10 px-5">
+    <main className="space-y-24 w-full">
+      <section className="flex flex-col jusitfy-center items-center gap-20  bg-[#F2F4F7] text-black h-[90vh]  md:p-10 py-10 px-5">
 
       <div className="flex  flex-col justify-center items-center  gap-10 ">
        
         <div className="w-full  flex flex-col justify-center items-center gap-6 text-center ">
           <div className="flex flex-col justify-center items-center gap-4" data-aos="fade-up">
-            <h1 className="text-4xl md:text-[3.5rem] leading-[1.2] font-bold md:w-3/4 text-center" data-aos="fade-up">
-             Supercharge QA engineering with AI <span className="text-primary"> {
-              "{seconds > hours}"
-             }
-             </span>
-            </h1>
-            <p className="text-md subtext font-normal" data-aos="fade-up">
+            <h1 className="text-4xl md:text-[3rem] leading-[1.2] font-normal md:w-full text-center" data-aos="fade-up">
+           Automate Backend QA with <span className="font-bold">AI</span>
+           </h1>
+            <p className="text-md subtext font-normal md:w-4/5" data-aos="fade-up">
               Faster tests, precise results, unparalleled efficiency and much more
             </p>
           </div>
           
         
 
-<form onSubmit={joinWaitlist} className="bg-white/30 border border-gray p-2 rounded-lg flex justify-between md:items-center w-full md:w-1/2" >
+<form onSubmit={joinWaitlist} className="bg-white/30 border border-gray px-2 py-2 rounded-full flex justify-between md:items-center w-full md:w-full relative" >
       <input
         value={email}
         placeholder="What&apos;s your email?"
-        className="bg-transparent text-white font-medium outline-none border-none text-md px-3"
+        className="bg-white text-black w-full font-medium outline-none border-none text-sm  p-4 rounded-full "
         onChange={(e) => setEmail(e.target.value)}
         type="email"
         required
       />
-<button  className='bg-primary md:px-5 px-2 py-3 font-medium text-secondary rounded-md text-sm hover:bg-lightPrimary transition-colors' disabled={isLoading} type="submit">
+<button  className='bg-primary md:px-5 px-3 py-3 font-medium text-secondary rounded-full  text-sm hover:bg-lightPrimary transition-colors absolute top-auto right-3' disabled={isLoading} type="submit">
 {isLoading ? (
   <span className="loader"></span>
 )
@@ -140,12 +137,16 @@ export default function Home() {
     </form>
         </div>
 
-        
+      
              </div>
 
+            
+             </section>
+
+             <section className="flex flex-col justify-center items-center gap-24 md:px-10 md:py-0 py-10 px-5" id ="about">
              <div className="flex flex-col justify-center items-center gap-4">
               <div data-aos="fade-up ">
-                <span className="text-gray">
+                <span className="text-[#9A9A9A]">
                   Integrate with your favorite code repository tools
                   </span>
                 </div>
@@ -155,107 +156,35 @@ export default function Home() {
                   <Image src="/Gitlab.png" alt="Github" width={100}    height={150} />    
                    </div>
               </div>
-             </section>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-auto" >
+            <div className="w-full md:w-1/2 flex flex-col justify-start items-start gap-4">
+                <div className="flex justify-center items-center gap-2 px-2 py-2 border border-gray rounded-full">
+                  <Image src="/wand_stars.png" alt="wand" width={15} height={15} />
+                  <h2 className="text-sm font-normal text-secondary" data-aos="fade-up">Fully powered with AI</h2>
+                </div>
+                <h2 className="text-4xl font-medium">Get past the backend QA testing bottleneck really fast</h2>
+                <p className="text-xl text-black/50 w-5/6">Set up backend tests in minutes, not hours—automate API testing, database validation, and log monitoring with scheduled or on-demand executions.</p>
 
-             <section className="flex flex-col justify-center items-center gap-10 md:p-10 py-10 px-5" id ="about">
-              <h2 className=" text-4xl md:text-5xl font-semibold w-full md:w-1/2 text-center" data-aos="fade-up ">
-              Get past the backend and QA testing bottleneck really fast
-                </h2>
-             {!flip ? (
-              <div className="flex flex-col justify-center items-start gap-5 bg-[#e8eef7] p-5 w-full md:w-3/4 rounded-lg" data-aos="fade-up ">
-                  <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 md:items-center w-full">
-                    <span className="text-[#636363] text-3xl font-medium">Backend testing is broken</span>
-                    <button className="bg-lighterPrimary py-2 px-4 rounded-lg group  transition-all hover:cursor-pointer  hover:bg-secondary hover:text-white flex justify-center items-center gap-3" onClick={()=> setFlip(!flip)}>
-                    <Command/>
-                    <span className="text-secondary text-sm font-medium group-hover:text-white">Resolve the issue</span>
-                    </button>
-</div>
-<p className="text-lg font-medium">Engineers spend countless hours crafting test cases, running tests, troubleshooting failures and piecing together resolutions</p>
-
-                    <div className="flex flex-wrap justify-between items-start gap-10">
-                   
-                      <Tag bgColor="secondary" color="white" tagName="Delayed releases" Icon={CircleAlert}/>
-                      <Tag bgColor="secondary" color="white" tagName="Increased costs" Icon={CircleAlert}/>
-                      <Tag bgColor="secondary" color="white" tagName="Stifled innovation" Icon={CircleAlert}/>
-                      </div>
-                  </div>
-            
-             ) : (
-              <div className="flex flex-col justify-center items-start gap-7  bg-[#e8eef7] p-5  lg:w-3/4 rounded-lg" data-aos="fade-up ">
-              <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 md:items-center w-full">
-                <span className="text-[#636363] text-3xl font-medium">Integrion fixes it</span>
-                <button className="bg-lighterPrimary py-2 px-4 rounded-lg group  transition-all hover:cursor-pointer  hover:bg-secondary hover:text-white flex justify-center items-center gap-3" onClick={()=> setFlip(!flip)}>
-                <Command/>
-                <span className="text-secondary text-sm font-medium group-hover:text-white">What&apos;s the problem ?</span>
+                <button className="flex justify-center items-center gap-2 border border-black text-black font-semibold text-sm px-4 py-3 rounded-full hover:bg-primary hover:text-black hover:font-bold mt-3">
+                  Request for Demo
+                 < MoveUpRight size={15} />
                 </button>
-</div>
-<p className="text-lg font-medium">With Integrion, you can <span className="text-secondary font-bold">slash QA times</span>, <span className="text-secondary font-bold">ship faster</span> and ensure <span className="text-secondary font-bold">rock solid backend performance</span>  - no more bottlenkecks just progress</p>
-
-               <Timeline/>
-              </div>
-             )}
-              </section>
-
-              <section className="flex flex-col justify-center item-center md:p-10 py-10 px-5 gap-10" id="features">
-              <div className="">
-                <h2 className="text-4xl md:text-5xl font-semibold text-center" data-aos="fade-up ">
-                  <span className="text-primary">Precision.Speed.Scalability.</span>
-             All in One Platform
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-5" data-aos="fade-up ">
-              <Card 
-    featureName="AI-powered test case generation" 
-    Icon={CircleAlert} 
-    desc="Create unit, integration, and E2E test cases automatically with a very wide coverage"
-  />
-
-  <Card 
-    featureName="Instant test execution" 
-    Icon={Zap} 
-    desc="Run tests seamlessly with lightning speed , across multiple environments."
-  />
-  <Image 
-    src="/img-1.png" 
-    alt="team-integration" 
-    width={600} 
-    height={200} 
-  />
-
- 
-  <Card 
-    featureName="Detailed failure insights" 
-    Icon={ChartSpline} 
-    desc="Receive pinpointed logs and AI-driven solutions for every failed test"
-  />
-  
- 
-  <div className="row-span-2 flex justify-center">
-    <Image 
-      src="/img-2.png" 
-      alt="team-integration" 
-      width={600} 
-      height={400} 
-      className="object-cover"
-    />
-  </div>
-  <Card 
-    featureName="Comprehensive database testing" 
-    Icon={Database} 
-    desc="Ensure robust backend-database integration with your other backend services"
-  />
-  <Card 
-    featureName="Full QA coverage" 
-    Icon={Wifi} 
-    desc="From simple unit tests to complete system-level integrations, your entire QA process is fully covered"
-  />
-  
-
-  
-
-</div>
-
+            </div>
+            <div className="w-full md:w-1/2 flex flex-col justify-center items-center gap-4">
+              <div className=" w-3/4 bg-[#000000] rounded-lg flex flex-col justify-start items-start gap-4 p-5">
+                <div className ="flex justify-between items-center w-full">
+                  <h3 className="text-white text-2xl font-semibold">Automated Execution</h3>
+                  <Command size={35} className="text-black bg-white rounded-md p-2" />
+                </div>
+                <p className="text-gray text-md w-full">Say goodbye to manual backend testing—Integrion simplifies API, database, and log testing with AI-powered automation.</p>
+                <div className="flex flex-wrap gap-5">
+                  <p className="border border-gray rounded-full px-5 py-3 text-white text-sm font-normal">AI Powered Insights</p>
+                  <p className="border border-gray rounded-full px-5 py-3 text-white text-sm font-normal">Reduce Cost</p>
+                  <p className="border border-gray rounded-full px-5 py-3 text-white text-sm font-normal">Boost Efficiency</p>
+                </div>
+                </div>  
+            </div>
+            </div>
                 </section>
 
 
