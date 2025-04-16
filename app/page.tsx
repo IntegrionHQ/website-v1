@@ -14,6 +14,8 @@ import FAQAccordion from "./components/ui/Accordion";
 import Link from "next/link"
 import AOS from 'aos';
 import "aos/dist/aos.css";
+import FeaturesGrid from "./components/ui/FeatureGrid";
+import AIFeatureCard from "./components/ui/AIFeatureCard";
 
 
 export default function Home() {
@@ -53,6 +55,15 @@ export default function Home() {
       answer: "Our AI models are trained to optimize test accuracy, ensuring 99.9% precision in detecting issues while reducing false positives."
     }
   ];
+ 
+  const AIFeatures = [
+    {
+      text:"Easily connect with your existing CI/CD pipelines, databases, and monitoring tools—no disruptions, just efficiency."
+    },
+    {
+      text: "Gain real-time visibility into test results with detailed reports on API responses, database queries, and system logs."
+    }
+  ]
 
  
   // Resend wailtist subscription API
@@ -102,8 +113,8 @@ export default function Home() {
   
 
   return (
-    <main className="space-y-24 w-full">
-      <section className="flex flex-col jusitfy-center items-center gap-20  bg-[#F2F4F7] text-black h-[90vh]  md:p-10 py-10 px-5">
+    <main className="space-y-24 w-full md:px-20 px-5">
+      <section className="flex flex-col justify-center items-center gap-20  bg-[#F2F4F7] text-black h-[90vh]  md:p-10 py-10 px-5 rounded-3xl">
 
       <div className="flex  flex-col justify-center items-center  gap-10 ">
        
@@ -162,8 +173,8 @@ export default function Home() {
                   <Image src="/wand_stars.png" alt="wand" width={15} height={15} />
                   <h2 className="text-sm font-normal text-secondary" data-aos="fade-up">Fully powered with AI</h2>
                 </div>
-                <h2 className="text-4xl font-medium">Get past the backend QA testing bottleneck really fast</h2>
-                <p className="text-xl text-black/50 w-5/6">Set up backend tests in minutes, not hours—automate API testing, database validation, and log monitoring with scheduled or on-demand executions.</p>
+                <h2 className="text-3xl font-medium">Get past the backend QA testing bottleneck really fast</h2>
+                <p className="text-xl text-black/50 w-5/6 subtext">Set up backend tests in minutes, not hours—automate API testing, database validation, and log monitoring with scheduled or on-demand executions.</p>
 
                 <button className="flex justify-center items-center gap-2 border border-black text-black font-semibold text-sm px-4 py-3 rounded-full hover:bg-primary hover:text-black hover:font-bold mt-3">
                   Request for Demo
@@ -176,7 +187,7 @@ export default function Home() {
                   <h3 className="text-white text-2xl font-semibold">Automated Execution</h3>
                   <Command size={35} className="text-black bg-white rounded-md p-2" />
                 </div>
-                <p className="text-gray text-md w-full">Say goodbye to manual backend testing—Integrion simplifies API, database, and log testing with AI-powered automation.</p>
+                <p className="text-gray text-md w-full subtext">Say goodbye to manual backend testing—Integrion simplifies API, database, and log testing with AI-powered automation.</p>
                 <div className="flex flex-wrap gap-5">
                   <p className="border border-gray rounded-full px-5 py-3 text-white text-sm font-normal">AI Powered Insights</p>
                   <p className="border border-gray rounded-full px-5 py-3 text-white text-sm font-normal">Reduce Cost</p>
@@ -187,6 +198,39 @@ export default function Home() {
             </div>
                 </section>
 
+
+<section className="flex flex-col justify-center items-center gap-4 px-5">
+  <div className="flex flex-col justify-center items-center gap-2">
+  <div className="flex justify-center items-center gap-2 px-2 py-2 border border-gray rounded-full">
+                  <Image src="/wand_stars.png" alt="wand" width={15} height={15} />
+                  <h2 className="text-sm font-normal text-secondary" data-aos="fade-up">Experience Amazing Features</h2>
+                </div>
+                <h2 className="text-4xl font-medium w-3/4 text-center">Precision. Speed. Scalability. All In One Platform</h2>
+  </div>
+  <div className="">
+    <FeaturesGrid/>
+  </div>
+</section>
+
+<section className="flex justify-center items-center gap-5 bg-[url(/bg-bg.svg)] h-[60vh] w-full p-10">
+<div className="w-1/2 flex flex-col justify-center items-start gap-5">
+<div className="flex flex-col justify-center items-start text-white">
+      <h2 className="text-2xl font-semibold">AI-Powered Insights, Smarter Debugging, Easy Fixes</h2>
+        <p className="text-md font-normal subtext">Detect backend issues before they escalate with AI-driven anomaly detection, and optmization recommendations</p>
+    </div>
+    <div className="flex flex-col gap-2">
+{AIFeatures.map((feature)=> (
+  <AIFeatureCard text={feature.text}/>
+))}
+
+    </div>
+
+</div>
+<div className="w-1/2 flex flex-col justify-center items-center">
+<Image src="/product-demo.png" width={500} height={500} alt=""/>
+</div>
+    
+  </section>
 
                 <section className="bg-secondary h-auto md:p-10 px-5 py-10" id="languages">
     <div className="p-10">
