@@ -27,9 +27,7 @@ export default function Home() {
   );
   AOS.refresh();
 },[])
-  // const [email, setEmail] = useState<string>("");
-  const [flip, setFlip ] = useState<boolean>(false);
-  // const [isLoading, setIsLoading] = useState<boolean>(false)
+
   const productFAQs = [
     {
       question: "How does Integrion reduce QA and backend testing times?",
