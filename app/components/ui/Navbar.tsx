@@ -69,7 +69,7 @@ const Navbar = () => {
                 <div className="flex justify-between items-center py-5 px-6 lg:px-8">
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0">
-                        <Image src="/logo.png" alt="logo" width={150} height={150} priority />
+                        <Image src="/logo.svg" alt="logo" width={150} height={150} priority />
                     </Link>
 
                     {/* Mobile menu button */}

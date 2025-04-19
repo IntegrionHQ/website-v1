@@ -177,8 +177,12 @@ export default function Home() {
                 <p className="text-xl text-black/50 w-5/6 subtext">Set up backend tests in minutes, not hours—automate API testing, database validation, and log monitoring with scheduled or on-demand executions.</p>
 
                 <button className="flex justify-center items-center gap-2 border border-black text-black font-semibold text-sm px-4 py-3 rounded-full hover:bg-primary hover:text-black hover:font-bold mt-3">
+                  <Link href="https://calendly.com/integrionhq/demo-request">
                   Request for Demo
-                 < MoveUpRight size={15} />
+                  < MoveUpRight size={15} />
+                  </Link>
+                
+                 
                 </button>
             </div>
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center gap-4">
@@ -227,46 +231,26 @@ export default function Home() {
 
 </div>
 <div className="w-1/2 flex flex-col justify-center items-center">
-<Image src="/product-demo.png" width={500} height={500} alt=""/>
+<Image src="/product-demo.png" width={350} height={350} alt=""/>
 </div>
     
   </section>
 
-                <section className="bg-secondary h-auto md:p-10 px-5 py-10" id="languages">
-    <div className="p-10">
-   
-      {/* Header */}
-      <div className="text-white text-center mb-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-white" data-aos="fade-up ">Built for every tech stack</h2>
-        <p className="text-gray mt-2 subtext" data-aos="fade-up ">
-          Seamlessly integrate Integrion into your workflow no matter what technologies you use
-        </p>
-       
-      </div>
-
-      {/* Grid Layout */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up ">
-        <TechStack Icon={FaNodeJs} language="NodeJS" />
-        <TechStack Icon={FaPython} language="Python" />
-        <TechStack Icon={FaJava} language="Java" />
-        <TechStack Icon={FaRust} language="Ruby" />
-        <TechStack Icon={FaGolang} language="Go" />
-        <TechStack Icon={TbBrandCSharp} language="C#" />
-        <TechStack Icon={FaPhp} language="PHP" />
-    </div>
-    <div className="flex flex-col justify-center items-center">
-    <button className="mt-4 bg-primary px-4 py-3 rounded-md text-sm text-black font-semibold">
-      <Link href="https://calendly.com/integrionhq/demo-request">
-      Request a demo
-      </Link>
-         
-        </button>
-      </div>
-  
-    </div>
- 
-
-                </section>
+           <section className="flex justify-center items-center gap-16">
+              <div className="w-1/2 flex flex-col justify-center items-start gap-3">
+                <h2 className="font-semibold text-4xl ">Built for every tech stack</h2>
+                <p className="text-black-500/50 text-lg font-normal">Seamlessly integrate Integrion into your workflow no matter what technologies you use</p>
+                <button className="flex justify-center items-center gap-2 border border-black text-black font-semibold text-sm px-4 py-3 rounded-full hover:bg-primary hover:text-black hover:font-bold mt-3">
+                  <Link href="https://calendly.com/integrionhq/demo-request">
+                  Request for Demo
+                  < MoveUpRight size={15} />
+                  </Link>
+                  </button>
+              </div>
+              <div className="w-1/2">
+                <Image src="/Stack.svg" width={400} height={400} alt="" className="animate-[spin_10s_linear_infinite]"/>
+              </div>
+           </section>
 
                 <section className="flex flex-col justify-center items-center  gap-10 md:p-10 py-10 px-5 " id="faq" data-aos="fade-up ">
                   <h2 className=" text-4xl md:text-5xl font-semibold text-center text-secondary">All the A&apos;s to your QA&apos;s</h2>

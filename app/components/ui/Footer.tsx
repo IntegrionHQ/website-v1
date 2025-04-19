@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link"
-
+import { Command, Instagram, Linkedin } from "lucide-react";
 const Footer = () => {
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -41,11 +41,20 @@ const Footer = () => {
     <footer className="bg-[#efefef] py-12 px-6 flex flex-col justify-center items-center gap-6 w-full">
       <div className="flex flex-col md:flex-row justify-between items-center gap-20 max-w-[1200px] w-full">
         {/* Left Content */}
-        <div className="flex flex-col gap-6 w-full md:w-1/2">
-          <h3 className="text-3xl md:text-4xl font-semibold text-secondary leading-snug">
-            Don&apos;t test the old way - Join the revolution
+        <div className="flex flex-col gap-6 w-full md:w-2/3 bg-secondary p-10 rounded-xl">
+        <div className="flex justify-between items-center gap-10">
+          <div className="w-2/3">
+          <h3 className="text-3xl md:text-4xl font-medium text-white leading-snug">
+          Don&apos;t test the old way - Join the revolution
           </h3>
-          <p className="text-lg text-[#555]">
+          </div>
+       <div className="w-1/3 flex justify-end items-end">
+       <Command size={35} className="text-black bg-white rounded-md p-2" />
+
+       </div>
+        </div>
+         
+          <p className="text-lg subtext text-[#aaa]">
             Be among the first to experience Integrion&apos;s groundbreaking capabilities.
           </p>
 
@@ -56,10 +65,10 @@ const Footer = () => {
               placeholder="example@waitlist.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-white/10  p-3 border border-gray text-black rounded-lg outline-none"
+              className="flex-1 bg-white  p-3 border border-gray text-black rounded-full outline-none"
             />
             <button
-              className="bg-primary text-secondary hover:bg-lightPrimary py-3 px-5 rounded-lg text-sm font-medium hover:bg-primary-dark transition-all"
+              className="bg-primary text-secondary hover:bg-lightPrimary py-3 px-5 rounded-full text-sm font-medium hover:bg-primary-dark transition-all"
               onClick={joinWaitlist}
             >
              {isLoading ? (
@@ -71,7 +80,7 @@ const Footer = () => {
         </div>
 
         {/* Right Image */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <div className="w-full md:w-1/3 flex justify-center">
           <Image src="/img-3.png" alt="Integrion Preview" width={350} height={250} className="rounded-lg" />
         </div>
       </div>
@@ -125,6 +134,10 @@ const Footer = () => {
           integrionhq@gmail.com
         </span>
         </Link>
+        <div className="flex justify-center items-center gap-2">
+          <Instagram size= "16" className="bg-black text-white rounded-full"/>
+          <Linkedin size="16" className=""/>
+        </div>
         <span className="text-sm text-[#636363] hover:font-bold hover:text-secondary">
           We are a full remote team, with team members across the globe .
         </span>
