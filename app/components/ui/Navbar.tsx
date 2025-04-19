@@ -137,7 +137,7 @@ const Navbar = () => {
                   
                   
                     </div>
-                    <div className="space-x-5">
+                    <div className="space-x-5 hidden md:block">
                         {/* CTA Buttons */}
                         <Link
                             href="https://calendly.com/integrionhq/demo-request"
@@ -210,19 +210,13 @@ const Navbar = () => {
                             
                             {/* Mobile CTA Buttons */}
                             <div className="space-y-2 pt-4">
-                                <Link
-                                    href="/login"
-                                    className="block w-full px-4 py-2 text-center font-medium bg-white/30 border border-gray/45 text-white rounded-md hover:bg-primary hover:text-secondary hover:border-none transition-all duration-200"
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    Sign in
-                                </Link>
+                               
                                 <Link
                                     href="https://calendly.com/integrionhq/demo-request"
-                                    className="block w-full px-4 py-2 text-center text-sm bg-primary text-secondary rounded-md font-medium hover:bg-lightPrimary transition-all duration-200"
+                                    className="block w-full px-4 py-2 text-center text-sm bg-primary text-secondary rounded-full font-medium hover:bg-lightPrimary transition-all duration-200"
                                     onClick={() => setIsOpen(false)}
                                 >
-                                    Request a demo
+                                   See a demo
                                 </Link>
                             </div>
                         </div>

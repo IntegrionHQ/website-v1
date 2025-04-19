@@ -167,17 +167,17 @@ export default function Home() {
                   <Image src="/Gitlab.png" alt="Github" width={100}    height={150} />    
                    </div>
               </div>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-auto" >
+            <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-auto" >
             <div className="w-full md:w-1/2 flex flex-col justify-start items-start gap-4">
                 <div className="flex justify-center items-center gap-2 px-2 py-2 border border-gray rounded-full">
                   <Image src="/wand_stars.png" alt="wand" width={15} height={15} />
                   <h2 className="text-sm font-normal text-secondary" data-aos="fade-up">Fully powered with AI</h2>
                 </div>
                 <h2 className="text-3xl font-medium">Get past the backend QA testing bottleneck really fast</h2>
-                <p className="text-xl text-black/50 w-5/6 subtext">Set up backend tests in minutes, not hours—automate API testing, database validation, and log monitoring with scheduled or on-demand executions.</p>
+                <p className="text-md md:text-xl text-black/50 md:w-5/6 subtext">Set up backend tests in minutes, not hours—automate API testing, database validation, and log monitoring with scheduled or on-demand executions.</p>
 
                 <button className="flex justify-center items-center gap-2 border border-black text-black font-semibold text-sm px-4 py-3 rounded-full hover:bg-primary hover:text-black hover:font-bold mt-3">
-                  <Link href="https://calendly.com/integrionhq/demo-request">
+                  <Link href="https://calendly.com/integrionhq/demo-request" className="flex">
                   Request for Demo
                   < MoveUpRight size={15} />
                   </Link>
@@ -186,7 +186,7 @@ export default function Home() {
                 </button>
             </div>
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center gap-4">
-              <div className=" w-3/4 bg-[#000000] rounded-lg flex flex-col justify-start items-start gap-4 p-5">
+              <div className="w-full md:w-3/4 bg-[#000000] rounded-lg flex flex-col justify-start items-start gap-4 p-5">
                 <div className ="flex justify-between items-center w-full">
                   <h3 className="text-white text-2xl font-semibold">Automated Execution</h3>
                   <Command size={35} className="text-black bg-white rounded-md p-2" />
@@ -209,15 +209,15 @@ export default function Home() {
                   <Image src="/wand_stars.png" alt="wand" width={15} height={15} />
                   <h2 className="text-sm font-normal text-secondary" data-aos="fade-up">Experience Amazing Features</h2>
                 </div>
-                <h2 className="text-4xl font-medium w-3/4 text-center">Precision. Speed. Scalability. All In One Platform</h2>
+                <h2 className="text-4xl font-medium md:w-3/4 text-center">Precision. Speed. Scalability. All In One Platform</h2>
   </div>
   <div className="">
     <FeaturesGrid/>
   </div>
 </section>
 
-<section className="flex justify-center items-center gap-5 bg-[url(/bg-bg.svg)] h-[60vh] w-full p-10">
-<div className="w-1/2 flex flex-col justify-center items-start gap-5">
+<section className="flex flex-col md:flex-row justify-center items-center gap-5 bg-[url(/bg-bg.svg)] h-auto md:h-[60vh] w-full p-5 pb-0 md:p-10">
+<div className="w-full md:w-1/2 flex flex-col justify-center items-start gap-5">
 <div className="flex flex-col justify-center items-start text-white">
       <h2 className="text-2xl font-semibold">AI-Powered Insights, Smarter Debugging, Easy Fixes</h2>
         <p className="text-md font-normal subtext">Detect backend issues before they escalate with AI-driven anomaly detection, and optmization recommendations</p>
@@ -230,24 +230,24 @@ export default function Home() {
     </div>
 
 </div>
-<div className="w-1/2 flex flex-col justify-center items-center">
+<div className="w-full md:w-1/2 flex flex-col justify-center items-center">
 <Image src="/product-demo.png" width={350} height={350} alt=""/>
 </div>
     
   </section>
 
-           <section className="flex justify-center items-center gap-16">
-              <div className="w-1/2 flex flex-col justify-center items-start gap-3">
+           <section className="flex flex-col md:flex-row justify-center items-center gap-16">
+              <div className="w-full md:w-1/2 flex flex-col justify-center items-start gap-3">
                 <h2 className="font-semibold text-4xl ">Built for every tech stack</h2>
                 <p className="text-black-500/50 text-lg font-normal">Seamlessly integrate Integrion into your workflow no matter what technologies you use</p>
                 <button className="flex justify-center items-center gap-2 border border-black text-black font-semibold text-sm px-4 py-3 rounded-full hover:bg-primary hover:text-black hover:font-bold mt-3">
-                  <Link href="https://calendly.com/integrionhq/demo-request">
+                  <Link href="https://calendly.com/integrionhq/demo-request" className="flex">
                   Request for Demo
                   < MoveUpRight size={15} />
                   </Link>
                   </button>
               </div>
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <Image src="/Stack.svg" width={400} height={400} alt="" className="animate-[spin_10s_linear_infinite]"/>
               </div>
            </section>

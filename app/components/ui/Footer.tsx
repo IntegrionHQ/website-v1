@@ -42,13 +42,13 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between items-center gap-20 max-w-[1200px] w-full">
         {/* Left Content */}
         <div className="flex flex-col gap-6 w-full md:w-2/3 bg-secondary p-10 rounded-xl">
-        <div className="flex justify-between items-center gap-10">
-          <div className="w-2/3">
+        <div className="flex flex-col-reverse md:flex-row justify-start md:justify-between items-start md:items-center gap-10">
+          <div className="w-full md:w-2/3">
           <h3 className="text-3xl md:text-4xl font-medium text-white leading-snug">
           Don&apos;t test the old way - Join the revolution
           </h3>
           </div>
-       <div className="w-1/3 flex justify-end items-end">
+       <div className="w-full md:w-1/3 flex justify-end items-end">
        <Command size={35} className="text-black bg-white rounded-md p-2" />
 
        </div>
