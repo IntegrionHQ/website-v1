@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/app/components/ui/Navbar";
 import Footer from "@/app/components/ui/Footer"
+import { Analytics } from "@vercel/analytics/react"
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
+      <Analytics/>
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

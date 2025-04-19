@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "release": "standard-version"
+    "release": "standard-version",
+    "deploy": "next build && next start"
   },
   "dependencies": {
     "@types/aos": "^3.0.7",
+    "@vercel/analytics": "^1.5.0",
     "aos": "^2.3.4",
     "feather-icons": "^4.29.2",
     "integrion-website-v1": "file:",
