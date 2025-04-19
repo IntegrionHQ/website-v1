@@ -3,13 +3,6 @@ import Image from "next/image";
 // import Button from "./components/ui/Button";
 import { useState , useEffect} from "react";
 import {MoveUpRight, Command } from "lucide-react"
-import { FaNodeJs, FaJava, FaPhp, FaPython, FaRust} from "react-icons/fa";
-import { FaGolang } from "react-icons/fa6";
-import {TbBrandCSharp} from "react-icons/tb"
-import Tag from "./components/ui/Tag";
-import Timeline from "./components/ui/Timeline";
-import Card from "./components/ui/Card"
-import TechStack from "./components/ui/TechStack";
 import FAQAccordion from "./components/ui/Accordion";
 import Link from "next/link"
 import AOS from 'aos';
@@ -224,7 +217,7 @@ export default function Home() {
     </div>
     <div className="flex flex-col gap-2">
 {AIFeatures.map((feature)=> (
-  <AIFeatureCard text={feature.text}/>
+  <AIFeatureCard key={feature.text} text={feature.text}/>
 ))}
 
     </div>
