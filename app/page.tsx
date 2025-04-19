@@ -194,7 +194,7 @@ export default function Home() {
                 </section>
 
 
-<section className="flex flex-col justify-center items-center gap-4 px-5">
+<section className="flex flex-col justify-center items-center gap-4 px-5" id="features">
   <div className="flex flex-col justify-center items-center gap-2">
   <div className="flex justify-center items-center gap-2 px-2 py-2 border border-gray rounded-full">
                   <Image src="/wand_stars.png" alt="wand" width={15} height={15} />
@@ -227,7 +227,7 @@ export default function Home() {
     
   </section>
 
-           <section className="flex flex-col md:flex-row justify-center items-center gap-16">
+           <section className="flex flex-col md:flex-row justify-center items-center gap-16" id="languages">
               <div className="w-full md:w-1/2 flex flex-col justify-center items-start gap-3">
                 <h2 className="font-semibold text-4xl ">Built for every tech stack</h2>
                 <p className="text-black-500/50 text-lg font-normal">Seamlessly integrate Integrion into your workflow no matter what technologies you use</p>
