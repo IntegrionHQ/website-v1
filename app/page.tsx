@@ -125,7 +125,7 @@ export default function Home() {
       <input
         value={email}
         placeholder="What&apos;s your email?"
-        className="bg-white text-black w-full font-medium outline-none border-none text-sm  p-4 rounded-full "
+        className="bg-white text-black w-full font-medium outline-none border-none text-sm  p-4 rounded-full"
         onChange={(e) => setEmail(e.target.value)}
         type="email"
         required
@@ -221,7 +221,7 @@ export default function Home() {
     </div>
 
 </div>
-<div className="w-full md:w-1/2 flex flex-col justify-center items-center">
+<div className="w-full md:w-1/2 flex flex-col justify-center items-center pb-6 sm:pb-0">
 <Image src="/product-demo.png" width={350} height={350} alt=""/>
 </div>
     
