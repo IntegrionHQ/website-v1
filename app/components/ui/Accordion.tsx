@@ -16,7 +16,6 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ faqs }) => {
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
   return (
     <div className="w-full max-w-2xl mx-auto space-y-4">
       {faqs.map((faq, index) => (
@@ -32,7 +31,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ faqs }) => {
             <ChevronDown 
               className={`w-6 h-6 transition-transform ${
                 openIndex === index ? 'rotate-180' : ''
-              }`} 
+              }`} onClick={() => toggleFAQ(index)}
             />
           </div>
 
