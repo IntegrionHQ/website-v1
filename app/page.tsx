@@ -200,7 +200,7 @@ export default function Home() {
                   <Image src="/wand_stars.png" alt="wand" width={15} height={15} />
                   <h2 className="text-sm font-normal text-secondary" data-aos="fade-up">Experience Amazing Features</h2>
                 </div>
-                <h2 className="text-4xl font-medium md:w-3/4 text-center">Precision. Speed. Scalability. All In One Platform</h2>
+                <h2 className="text-4xl font-medium md:w-3/4 md:text-center">Precision. Speed. Scalability. All In One Platform</h2>
   </div>
   <div className="">
     <FeaturesGrid/>
