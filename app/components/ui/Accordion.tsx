@@ -21,11 +21,11 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ faqs }) => {
       {faqs.map((faq, index) => (
         <div 
           key={index} 
-          className=" bg-lighterPrimary text-secondary  rounded-md overflow-hidden shadow-sm"
+          className="bg-black text-white rounded-md overflow-hidden shadow-sm"
         >
           <div 
             onMouseEnter={() => toggleFAQ(index)}
-            className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors"
+            className="flex justify-between items-center p-4 cursor-pointer hover:text-gray-50 transition-colors"
           >
             <h3 className="text-md font-semibold">{faq.question}</h3>
             <ChevronDown 
