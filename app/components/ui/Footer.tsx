@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link"
 import { Command, Instagram, Linkedin } from "lucide-react";
+import logo from "@/public/logo (2).svg"
+import people from "@/public/img-3.png"
 const Footer = () => {
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -41,7 +43,7 @@ const Footer = () => {
     <footer className="bg-[#efefef] py-12 px-6 flex flex-col justify-center items-center gap-6 w-full">
       <div className="flex flex-col md:flex-row justify-between items-center gap-20 max-w-[1200px] w-full">
         {/* Left Content */}
-        <div className="flex flex-col gap-6 w-full md:w-2/3 bg-secondary p-10 rounded-xl">
+        <div className="flex flex-col gap-6 w-full md:w-2/3 bg-green-950 p-10 rounded-xl">
         <div className="flex flex-col-reverse md:flex-row justify-start md:justify-between items-start md:items-center gap-10">
           <div className="w-full md:w-2/3">
           <h3 className="text-3xl md:text-4xl font-medium text-white leading-snug">
@@ -68,7 +70,7 @@ const Footer = () => {
               className="flex-1 bg-white  p-3 border border-gray text-black rounded-full outline-none"
             />
             <button
-              className="bg-primary text-secondary hover:bg-lightPrimary py-3 px-5 rounded-full text-sm font-medium hover:bg-primary-dark transition-all"
+              className="bg-[#eaff3b] hover:bg-[#f9ff9d] text-black  py-3 px-5 rounded-full text-sm font-medium  transition-all"
               onClick={joinWaitlist}
             >
              {isLoading ? (
@@ -81,7 +83,7 @@ const Footer = () => {
 
         {/* Right Image */}
         <div className="w-full md:w-1/3 flex justify-center">
-          <Image src="/img-3.png" alt="Integrion Preview" width={350} height={250} className="rounded-lg" />
+          <Image src={people} alt="Integrion Preview" width={350} height={250} className="rounded-lg" />
         </div>
       </div>
     <hr className="text-[#333]/10 h-2 w-full"/>
@@ -92,35 +94,35 @@ const Footer = () => {
           Product
           </span>
           <div className="flex flex-col justify-center items-start gap-3">
-      <Link href="/#features" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <Link href="/#features" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-black">
       <span>Features</span>
       </Link>
-      <Link href="https://calendly.com/integrionhq/demo-request" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-secondary">
+      <Link href="https://calendly.com/integrionhq/demo-request" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-black">
      <span>
      Pricing 
       </span>
-      <span className="bg-primary text-secondary font-semibold text-xs rounded-md px-2 py-1"> Speak to sales </span>
+      <span className="bg-[#eaff3b] text-green-950 font-semibold text-xs rounded-md px-2 py-1"> Speak to sales </span>
       </Link>
-      <Link href="https://calendly.com/integrionhq/demo-request" target="_blank" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <Link href="https://calendly.com/integrionhq/demo-request" target="_blank" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-black">
       <span>Speak to engineering</span>
       </Link>
           </div>
       </div>
       <div className="flex flex-col justify-between items-start gap-4">
-<span className="font-bold text-md text-[#636363]">
+      <span className="font-bold text-md text-[#636363]">
           Company
           </span>
           <div className="flex flex-col justify-center items-start gap-3">
-      <Link href="/#about" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <Link href="/#about" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-black">
       <span>About Us</span>
       </Link>
-      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-secondary">
+      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] space-x-2 hover:font-bold hover:text-black">
      <span>
      Emerging Talents 
       </span>
-      <span className="bg-primary text-secondary font-semibold text-xs rounded-md px-2 py-1"> Speak to sales </span>
+      <span className="bg-[#eaff3b] text-green-950 font-semibold text-xs rounded-md px-2 py-1"> Speak to sales </span>
       </Link>
-      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-secondary">
+      <Link href="mailto:integrionhq@gmail.com" target="_blank" className="text-sm font-medium text-[#636363] hover:font-bold hover:text-black">
       <span>Careers</span>
       </Link>
           </div>
@@ -128,9 +130,9 @@ const Footer = () => {
         
       </div>
       <div className="flex flex-col justify-between items-start">
-        <Image src="/logo.svg" alt="" width={150} height={150}/>
+        <Image src={logo} alt="" width={150} height={150}/>
         <Link href="mailto:integrionhq@gmail.com">
-        <span className="text-sm text-[#636363] hover:font-bold hover:text-secondary">
+        <span className="text-sm text-[#636363] hover:font-bold hover:text-black">
           integrionhq@gmail.com
         </span>
         </Link>
@@ -138,7 +140,7 @@ const Footer = () => {
           <Instagram size= "16" className="bg-black text-white rounded-full"/>
           <Linkedin size="16" className=""/>
         </div>
-        <span className="text-sm text-[#636363] hover:font-bold hover:text-secondary">
+        <span className="text-sm text-[#636363] hover:font-bold hover:text-black">
           We are a full remote team, with team members across the globe .
         </span>
        

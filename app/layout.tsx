@@ -1,22 +1,9 @@
 import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/app/components/ui/Navbar";
-import Footer from "@/app/components/ui/Footer"
 import { Analytics } from "@vercel/analytics/react"
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
+import Footer from "@/app/components/ui/Footer"
 export const metadata: Metadata = {
-  title: "Integrion",
+  title: "Intergion",
   description: "",
 };
 
@@ -29,9 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <Analytics/>
       <body
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar/>
         {children}
         <Footer/>
       </body>
