@@ -53,7 +53,7 @@ export default function HoverBorderGradient({
       }, duration * 1000);
       return () => clearInterval(interval);
     }
-  }, [hovered, duration, clockwise]);
+  }, [hovered, duration, clockwise,rotateDirection]);
 
   return (
     <Tag

@@ -15,7 +15,6 @@ import bitbucket from "@/public/bitbucket.png"
 import Image from 'next/image'
 import projectDemo from "@/public/product-demo.png"
 import stack from "@/public/Stack.svg"
-import bg from "@/public/bg-bg.svg"
 export default function Home() {
    useEffect(()=>
 {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconBaseProps } from 'react-icons';
-import BackgroundGradient from "@/components/ui/AIFeatureCard"
+// import BackgroundGradient from "@/components/ui/AIFeatureCard"
 
 
 const Card = ({featureName, Icon, desc}:{featureName:string, Icon:React.ComponentType<IconBaseProps>, desc:string}) => {
